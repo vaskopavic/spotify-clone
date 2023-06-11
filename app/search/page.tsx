@@ -1,13 +1,15 @@
-import getSongsByTitle from "@/actions/getSongsByTitle";
-import Header from "@/components/Header";
-import SearchInput from "@/components/SearchInput";
 import SearchContent from "./components/SearchContent";
+import SearchInput from "@/components/SearchInput";
+import Header from "@/components/Header";
+import getSongsByTitle from "@/actions/getSongsByTitle";
 
 interface SearchProps {
   searchParams: {
     title: string;
   };
 }
+
+export const revalidate = 0;
 
 const Search = async ({ searchParams }: SearchProps) => {
   const songs = await getSongsByTitle(searchParams.title);
